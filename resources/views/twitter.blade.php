@@ -27,7 +27,7 @@
 	<div class="container">
 		<br>
 
-		<form action="{{route('post.tweet')}}" class="shadow-sm p-3 mb-5 bg-white rounded" method="post" accept-charset="utf-8" enctype="multipart/form-data">
+		<form action="{{route('post.tweet')}}" class="shadow p-3 mb-5 bg-white rounded" method="post" accept-charset="utf-8" enctype="multipart/form-data">
 			{{csrf_field()}}
 			@if(count($errors) > 0)
 				@foreach($errors->all() as $error)
@@ -57,7 +57,7 @@
 
 		@if(!empty($data))
 			@foreach($data as $key => $tweet)
-				<div class="shadow-sm p-3 mb-5 bg-white rounded">
+				<div class="shadow p-3 mb-5 bg-white rounded">
 					<h3>{{$tweet['text']}} 
 						<i class="glyphicon glyphicon-heart"></i>{{$tweet['favorite_count']}}
 						<i class="glyphicon glyphicon-repeat"></i>{{$tweet['retweet_count']}}
