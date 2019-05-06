@@ -26,6 +26,35 @@
 
 	<div class="container">
 		<br>
+
+		<form action="{{route('post.tweet')}}" class="shadow-sm p-3 mb-5 bg-white rounded" method="post" accept-charset="utf-8" enctype="multipart/form-data">
+			{{csrf_field()}}
+			@if(count($errors) > 0)
+				@foreach($errors->all() as $error)
+					<div class="alert-danger">
+						{{$error}}
+					</div>
+				@endforeach
+			@endif
+			<div class="form-group">
+				<label for="">
+					Tweet Text
+				</label>
+				<input type="text" name="tweet" class="form-control">
+			</div>
+			<div class="form-group">
+				<label for="">
+					Upload Images
+				</label>
+				<input type="file" name="images[]" multiple class="form-control">
+			</div>
+
+
+			<div class="form-group">
+				<button type="submit" class="btn btn-success">Create Tweet</button>
+			</div>
+		</form>
+
 		@if(!empty($data))
 			@foreach($data as $key => $tweet)
 				<div class="shadow-sm p-3 mb-5 bg-white rounded">
